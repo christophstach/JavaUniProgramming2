@@ -1,0 +1,22 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+
+tasks.create(name: 'runVektor', type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'VektorTest'
+}
+
+tasks.create(name: 'runArrayElement', type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'ArrayElementTest'
+}
