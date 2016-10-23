@@ -1,13 +1,13 @@
 import java.util.Arrays;
 
 /**
- * @author s0555912@htw-berlin.de<Christoph Stach>
+ * Klasse zum Erzeugen von Matrizen
+ *
+ * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 17.10.2016
  */
 public class Matrix {
     private double[][] table;
-    private int rows;
-    private int cols;
 
     /**
      * Erzeugt eine Matrix
@@ -16,20 +16,21 @@ public class Matrix {
      */
     public Matrix(double[][] table) {
         this.setTable(table);
-
-        this.rows = table.length;
-        this.cols = table[0].length;
     }
 
     /**
-     * @return
+     * Gibt die der Matrix zugrundeliegende Tabelle zurück
+     *
+     * @return Die Tabelle ist ein float array
      */
     public double[][] getTable() {
         return table;
     }
 
     /**
-     * @param table
+     * Setzt die tabelle der Matrix
+     *
+     * @param table Ein double array für die Zeilen und Zellen
      */
     public void setTable(double[][] table) {
         if (table.length == 0) {
@@ -49,24 +50,28 @@ public class Matrix {
     }
 
     /**
-     * @return
+     * Gibt die Zeilen Anzahl der Matrix zurück
+     *
+     * @return Die Anzahl an Zeilen
      */
     public int getRows() {
-        return rows;
+        return this.table.length;
     }
 
     /**
-     * @return
+     * Gibt die Spalten Anzahl der Matrix zurück
+     *
+     * @return Die Anzahl an Spalten
      */
     public int getCols() {
-        return cols;
+        return this.table[0].length;
     }
 
     /**
      * Vergleicht diese Matrix mit einer anderen Matrix
      *
-     * @param m
-     * @return
+     * @param m Die zu überprüfende Matrix
+     * @return true wenn Matrizen gleich sind sonst false
      */
     public boolean equals(Matrix m) {
         if (this.table.length == m.table.length) {
@@ -91,8 +96,8 @@ public class Matrix {
     /**
      * Addiert diese Matrix mit einer anderen Matrix und gibt die neue Matrix-Summe zurück
      *
-     * @param m
-     * @return
+     * @param m Die zu addierende Matrix
+     * @return Eine neue Matrix mit der Summe der beien Matritzen
      */
     public Matrix add(Matrix m) {
         if (this.getRows() == m.getRows() && this.getCols() == m.getCols()) {
@@ -113,8 +118,8 @@ public class Matrix {
     /**
      * Bildet das Produkt dieser Matrix mit einer anderen Matrix und gibt die Ergebnis-Matrix zurück
      *
-     * @param m
-     * @return
+     * @param m Die Matrix die rechts drank multipliziert wird
+     * @return Die Ergebnismatrix
      */
     public Matrix multiply(Matrix m) {
         if (this.getCols() != m.getRows()) {
@@ -135,10 +140,10 @@ public class Matrix {
     }
 
     /**
-     * Bildet das Scalarprodukt mit dieser Matrix und gibt die Ergebnis-Matrix zurück
+     * Bildet das Scalarprodukt mit dieser Matrix und gibt die Ergebnismatrix zurück
      *
-     * @param scalar
-     * @return
+     * @param scalar Ein Scalarer Wert
+     * @return Die Ergebnismatrix
      */
     public Matrix multiplyScalar(double scalar) {
         double[][] resultTable = new double[this.getCols()][this.getRows()];
@@ -155,7 +160,7 @@ public class Matrix {
     /**
      * Gibt die Matrix als String aus
      *
-     * @return
+     * @return Die Darstellung einer Matrix
      */
     @Override
     public String toString() {

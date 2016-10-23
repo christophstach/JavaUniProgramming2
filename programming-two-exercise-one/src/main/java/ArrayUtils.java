@@ -1,9 +1,8 @@
 /**
- * Name: Christoph Stach
- * Matrikel-Nr: 555912
- * Datum: 24.06.16
- *
  * Zusatzklasse für Arrays mit einigen nützlichen Funktionen
+ *
+ * @author Christoph Stach - s0555912@htw-berlin.de
+ * @since 24.06.2016
  */
 public class ArrayUtils {
     /**
@@ -15,7 +14,7 @@ public class ArrayUtils {
     public static String arrayToPaddedString(int[] arr, int padding) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             str += String.format("%1$-" + padding + "d", arr[i]);
         }
 
@@ -31,7 +30,7 @@ public class ArrayUtils {
     public static String arrayToPaddedString(float[] arr, int padding) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             str += String.format("%1$-" + padding + "f", arr[i]);
         }
 
@@ -47,7 +46,7 @@ public class ArrayUtils {
     public static String arrayToPaddedString(double[] arr, int padding) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             str += String.format("%1$-" + padding + "f", arr[i]);
         }
 
@@ -63,10 +62,10 @@ public class ArrayUtils {
     public static String arrayToString(int[] arr) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
-            if(i == 0) {
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
                 str = "[" + arr[i] + ", ";
-            } else if(i == arr.length - 1) {
+            } else if (i == arr.length - 1) {
                 str += arr[i] + "]";
             } else {
                 str += arr[i] + ", ";
@@ -85,10 +84,10 @@ public class ArrayUtils {
     public static String arrayToString(float[] arr) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
-            if(i == 0) {
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
                 str = "[" + arr[i] + ", ";
-            } else if(i == arr.length - 1) {
+            } else if (i == arr.length - 1) {
                 str += arr[i] + "]";
             } else {
                 str += arr[i] + ", ";
@@ -107,10 +106,10 @@ public class ArrayUtils {
     public static String arrayToString(double[] arr) {
         String str = "";
 
-        for(int i = 0; i < arr.length; i++) {
-            if(i == 0) {
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
                 str = "[" + arr[i] + ", ";
-            } else if(i == arr.length - 1) {
+            } else if (i == arr.length - 1) {
                 str += arr[i] + "]";
             } else {
                 str += arr[i] + ", ";
@@ -129,9 +128,9 @@ public class ArrayUtils {
      * @return
      */
     public static int[] addToArray(int[] arr, int value) {
-        int [] newArr = new int[arr.length + 1];
+        int[] newArr = new int[arr.length + 1];
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
 
@@ -149,9 +148,9 @@ public class ArrayUtils {
      * @return
      */
     public static double[] addToArray(double[] arr, double value) {
-        double [] newArr = new double[arr.length + 1];
+        double[] newArr = new double[arr.length + 1];
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
 
@@ -171,7 +170,7 @@ public class ArrayUtils {
     public static float[] addToArray(float[] arr, float value) {
         float[] newArr = new float[arr.length + 1];
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
 
@@ -191,7 +190,7 @@ public class ArrayUtils {
     public static String[] addToArray(String[] arr, String value) {
         String[] newArr = new String[arr.length + 1];
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
 
@@ -211,7 +210,7 @@ public class ArrayUtils {
     public static byte[] addToArray(byte[] arr, byte value) {
         byte[] newArr = new byte[arr.length + 1];
 
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
         }
 
@@ -231,7 +230,7 @@ public class ArrayUtils {
         boolean exists = false;
 
         for (byte element : arr) {
-            if(element == value) {
+            if (element == value) {
                 exists = true;
                 break;
             }
@@ -250,7 +249,7 @@ public class ArrayUtils {
     public static int findFirstIndexByValue(byte[] arr, byte value) {
         int res = -1;
         for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == value) {
+            if (arr[i] == value) {
                 res = i;
                 break;
             }
@@ -268,7 +267,7 @@ public class ArrayUtils {
     public static int max(int[] arr) {
         int max = arr[0];
         for (int element : arr) {
-            if(max < element) {
+            if (max < element) {
                 max = element;
             }
         }

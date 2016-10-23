@@ -2,8 +2,11 @@ import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 /**
- * @author s0555912@htw-berlin.de<Christoph Stach>
+ * JUnit-Tests für Matritzen
+ *
+ * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 17.10.2016
  */
 public class MatrixTest {
@@ -27,6 +30,7 @@ public class MatrixTest {
 
     /**
      * Testet ob der Konstruktor bei falschen Argumenten eine Exception wirft
+     * Grenzfall
      */
     @Test(expected = IllegalArgumentException.class)
     public void setTableExceptionOnWrongTable() {
@@ -41,6 +45,7 @@ public class MatrixTest {
 
     /**
      * Testet ob der Konstruktor bei einer leeren Tabelle eine Exception wirft
+     * Grenzfall
      */
     @Test(expected = IllegalArgumentException.class)
     public void setTableExceptionOnEmptyTable() {
@@ -54,6 +59,7 @@ public class MatrixTest {
      */
     @Test
     public void multiply() {
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.multiply(
                 new Matrix(
@@ -74,6 +80,7 @@ public class MatrixTest {
             )
         );
 
+        // Bester Fall
         Assert.assertFalse(
             this.matrix.multiply(
                 new Matrix(
@@ -97,6 +104,7 @@ public class MatrixTest {
 
     /**
      * Testet ob die bei einer Falschen Matrix eine Exception geworfen wird
+     * Grenzfall
      */
     @Test(expected = IllegalArgumentException.class)
     public void multiplyExceptionOnWrongMatrix() {
@@ -115,6 +123,7 @@ public class MatrixTest {
      */
     @Test
     public void add() {
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.add(
                 new Matrix(
@@ -135,6 +144,7 @@ public class MatrixTest {
             )
         );
 
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.add(
                 new Matrix(
@@ -155,6 +165,7 @@ public class MatrixTest {
             )
         );
 
+        // Bester Fall
         Assert.assertFalse(
             this.matrix.add(
                 new Matrix(
@@ -178,6 +189,7 @@ public class MatrixTest {
 
     /**
      * Test ob die Methode eine Exception wirft falls zwei Matrizen mit unterschiedlichen größen addiert werden
+     * Grenzfall
      */
     @Test(expected = IllegalArgumentException.class)
     public void addExceptionOnWrongMatrix() {
@@ -196,6 +208,7 @@ public class MatrixTest {
      */
     @Test
     public void equals() {
+        // Normaler Fall
         Assert.assertTrue(this.matrix.equals(
             new Matrix(
                 new double[][]{
@@ -206,6 +219,7 @@ public class MatrixTest {
             )
         ));
 
+        // Bester Fall
         Assert.assertFalse(this.matrix.equals(
             new Matrix(
                 new double[][]{
@@ -216,6 +230,7 @@ public class MatrixTest {
             )
         ));
 
+        // Bester Fall
         Assert.assertFalse(this.matrix.equals(
             new Matrix(
                 new double[][]{
@@ -225,6 +240,7 @@ public class MatrixTest {
             )
         ));
 
+        // Bester Fall
         Assert.assertFalse(this.matrix.equals(
             new Matrix(
                 new double[][]{
@@ -241,6 +257,7 @@ public class MatrixTest {
      */
     @Test
     public void multipleScalar() {
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.multiplyScalar(1).equals(
                 new Matrix(
@@ -253,6 +270,7 @@ public class MatrixTest {
             )
         );
 
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.multiplyScalar(-1).equals(
                 new Matrix(
@@ -265,6 +283,7 @@ public class MatrixTest {
             )
         );
 
+        // Normaler Fall
         Assert.assertTrue(
             this.matrix.multiplyScalar(2).equals(
                 new Matrix(
@@ -277,6 +296,7 @@ public class MatrixTest {
             )
         );
 
+        // Bester Fall
         Assert.assertFalse(
             this.matrix.multiplyScalar(2).equals(
                 new Matrix(
@@ -292,6 +312,7 @@ public class MatrixTest {
 
     /**
      * Testet ob die Zeilenanzahl stimmt
+     * Normaler Fall
      */
     @Test
     public void getRows() {
@@ -300,6 +321,7 @@ public class MatrixTest {
 
     /**
      * Testet ob die Spaltenanzahl stimmt
+     * Normaler Fall
      */
     @Test
     public void getCols() {
@@ -308,6 +330,7 @@ public class MatrixTest {
 
     /**
      * Testet ob die Tabelle der Matrix korrekt gesetzt wurde
+     * Normaler Fall
      */
     @Test
     public void getTable() {
@@ -319,5 +342,17 @@ public class MatrixTest {
             },
             this.matrix.getTable()
         );
+    }
+
+    /**
+     * Testet ob eine Matrix korrekt angezeigt wird
+     */
+    @Test
+    public void testToString() {
+        String matrix = "[1.0, 2.0, 3.0]\n" +
+            "[4.0, 5.0, 6.0]\n" +
+            "[7.0, 8.0, 9.0]\n";
+
+        Assert.assertEquals(this.matrix.toString(), matrix);
     }
 }
