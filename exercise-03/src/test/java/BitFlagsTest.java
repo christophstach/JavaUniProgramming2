@@ -23,29 +23,11 @@ public class BitFlagsTest {
     }
 
     @Test
-    public void getSetRawStatus() {
-        this.bitFlags.setRawStatus(new boolean[]{true, true, true});
-        Assert.assertArrayEquals(new boolean[]{true, true, true}, this.bitFlags.getRawStatus());
-
-        this.bitFlags.setRawStatus(new boolean[]{false, true, true});
-        Assert.assertArrayEquals(new boolean[]{false, true, true}, this.bitFlags.getRawStatus());
-
-        this.bitFlags.setRawStatus(new boolean[]{false});
-        Assert.assertArrayEquals(new boolean[]{false}, this.bitFlags.getRawStatus());
-    }
-
-
-    @Test
     public void getSetStatus() {
-        for (int i = 0; i <= 100; i++) {
+        for (int i = -100; i <= 100; i++) {
             this.bitFlags.setStatus(i);
             Assert.assertEquals(i, this.bitFlags.getStatus());
         }
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void setStatusExceptionOnNegativeNumber() {
-        this.bitFlags.setStatus(-10);
     }
 
     @Test
@@ -54,29 +36,20 @@ public class BitFlagsTest {
         this.bitFlags.switchOn(2);
         Assert.assertEquals(15, this.bitFlags.getStatus());
 
-        this.bitFlags.switchOn(0);
+        this.bitFlags.setStatus(-15);
+        this.bitFlags.switchOn(1);
+        Assert.assertEquals(-13, this.bitFlags.getStatus());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void switchOnExceptionOnWrongIndex() {
-        this.bitFlags.switchOn(-1);
-    }
 
     @Test
     public void switchOff() {
         this.bitFlags.switchOff(3);
         Assert.assertEquals(1, this.bitFlags.getStatus());
 
-        this.bitFlags.switchOff(5);
-        Assert.assertEquals(1, this.bitFlags.getStatus());
-
+        this.bitFlags.setStatus(-15);
         this.bitFlags.switchOff(0);
-        Assert.assertEquals(0, this.bitFlags.getStatus());
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void switchOffExceptionOnWrongIndex() {
-        this.bitFlags.switchOff(-1);
+        Assert.assertEquals(-16, this.bitFlags.getStatus());
     }
 
     @Test
@@ -85,14 +58,10 @@ public class BitFlagsTest {
         this.bitFlags.swap(2);
         Assert.assertEquals(15, this.bitFlags.getStatus());
 
-        this.bitFlags.swap(5);
-        Assert.assertEquals(47, this.bitFlags.getStatus());
+        this.bitFlags.setStatus(-15);
         this.bitFlags.swap(0);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void swapExceptionOnWrongIndex() {
-        this.bitFlags.swap(-1);
+        this.bitFlags.swap(1);
+        Assert.assertEquals(-14, this.bitFlags.getStatus());
     }
 
     @Test
@@ -103,8 +72,17 @@ public class BitFlagsTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void isSetOnExceptionOnWrongIndex() {
-        this.bitFlags.isSet(-1);
+    public void switchOnExceptionOnWrongIndex() {
+        this.bitFlags.switchOn(35);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void switchOffExceptionOnWrongIndex() {
+        this.bitFlags.switchOff(35);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void swapExceptionOnWrongIndex() {
+        this.bitFlags.swap(35);
+    }
 }
