@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package exercise;
 
 /**
  * Eine Klasse zum Arbeiten mit BitFlags
@@ -43,7 +43,7 @@ public class BitFlags {
      * @param index Die Stelle
      */
     public void switchOn(int index) {
-        if(index >= 0 && index <=  31) {
+        if (index >= 0 && index <= 31) {
             this.status |= 1 << index;
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
@@ -56,7 +56,7 @@ public class BitFlags {
      * @param index Die Stelle
      */
     public void switchOff(int index) {
-        if(index >= 0 && index <=  31) {
+        if (index >= 0 && index <= 31) {
             this.status &= ~(1 << index);
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
@@ -69,7 +69,7 @@ public class BitFlags {
      * @param index Die Stelle
      */
     public void swap(int index) {
-        if(index >= 0 && index <=  31) {
+        if (index >= 0 && index <= 31) {
             this.status ^= 1 << index;
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
@@ -84,7 +84,7 @@ public class BitFlags {
      * @return true wenn 1 und false wenn 0
      */
     public boolean isSet(int index) {
-        if(index >= 0 && index <=  31) {
+        if (index >= 0 && index <= 31) {
             return (this.status & 1 << index) != 0;
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
@@ -98,7 +98,6 @@ public class BitFlags {
      */
     @Override
     public String toString() {
-        return Integer.toBinaryString(this.status);
-        //return Binary.inBinary(this.status);
+        return Binary.inBinary(this.status);
     }
 }

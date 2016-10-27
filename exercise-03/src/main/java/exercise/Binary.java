@@ -1,3 +1,5 @@
+package exercise;
+
 /**
  * Klasse zum Arbeiten mit Bin&auml;r Zahlen
  *
@@ -12,18 +14,19 @@ public class Binary {
      * @return Die Darstellung als Bin&auml;r-Zahl
      */
     public static String inBinary(int value) {
-        if (value == 0) {
-            return "0";
-        } else if (value > 0) {
-            String result = "";
+        String result = "";
+        boolean firstOneFound = false;
+        BitFlags bitFlags = new BitFlags(value);
 
-            for (int i = 0; i < Math.ceil(Math.log(value + 1) / Math.log(2)); i++) {
-                result = ((value >> i) & 1) + result;
+        for (int i = 31; i >= 0; i--) {
+            firstOneFound = firstOneFound ? firstOneFound : bitFlags.isSet(i);
+
+            if (firstOneFound) {
+                result += bitFlags.isSet(i) ? "1" : "0";
             }
-
-            return result;
-        } else {
-            throw new IllegalArgumentException("Negative Zahlen werden nicht unterstützt");
         }
+
+        return result;
+
     }
 }
