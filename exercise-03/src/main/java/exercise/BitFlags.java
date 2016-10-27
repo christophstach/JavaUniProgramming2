@@ -76,7 +76,6 @@ public class BitFlags {
         }
     }
 
-
     /**
      * &Uuml;berpr&uuml; ob ein Bit an der gew&auml;hlten Stelle gesetzt ist
      *

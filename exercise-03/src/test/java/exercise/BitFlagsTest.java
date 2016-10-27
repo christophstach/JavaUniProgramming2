@@ -19,11 +19,6 @@ public class BitFlagsTest {
         this.bitFlags = new BitFlags(9);
     }
 
-    @After
-    public void tearDown() {
-
-    }
-
     @Test
     public void getSetStatus() {
         for (int i = -100; i <= 100; i++) {
