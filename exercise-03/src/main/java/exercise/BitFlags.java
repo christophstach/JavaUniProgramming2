@@ -44,7 +44,7 @@ public class BitFlags {
      */
     public void switchOn(int index) {
         if (index >= 0 && index <= 31) {
-            this.status |= 1 << index;
+            this.status |= (1 << index);
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
         }
@@ -70,7 +70,7 @@ public class BitFlags {
      */
     public void swap(int index) {
         if (index >= 0 && index <= 31) {
-            this.status ^= 1 << index;
+            this.status ^= (1 << index);
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
         }
@@ -84,7 +84,7 @@ public class BitFlags {
      */
     public boolean isSet(int index) {
         if (index >= 0 && index <= 31) {
-            return (this.status & 1 << index) != 0;
+            return (this.status & (1 << index)) != 0;
         } else {
             throw new IllegalArgumentException("Nur Zahlen zwischen 0 und 31 sind erlaubt um innerhalb des Wertebereichs vom Integer zu bleiben");
         }
