@@ -1,8 +1,5 @@
 package exercise;
 
-import java.nio.channels.Pipe;
-import java.util.Arrays;
-
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/3/16.

@@ -12,7 +12,7 @@ dependencies {
 
 tasks.create(name: 'run', type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = 'exercise.Main'
+    main = 'exercise.EmployeeTest'
 }
 
 tasks.create(name: 'zip', type: Zip) {

@@ -1,7 +1,7 @@
 package exercise;
 
 /**
- * Rechnet mit Werten aus einem String. Kann somit direkt  mit den args der Main-Methode aufgerufen werden.
+ * Rechnet mit Werten aus einem String. Kann somit direkt  mit den args der EmployeeTest-Methode aufgerufen werden.
  * Rundet alle Ergebnisse auf zwei Nachkommastellen.
  *
  * @author Christoph Stach - s0555912@htw-berlin.de
