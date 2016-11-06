@@ -14,6 +14,7 @@ public class Apprentice extends Employee {
      * Konstruktor
      */
     public Apprentice() {
+        super();
     }
 
     /**
