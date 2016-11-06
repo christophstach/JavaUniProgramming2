@@ -34,7 +34,9 @@ public class CalculatorTest {
             //Errors
             new String[]{"1,2", "add", "2"},
             new String[]{"1", "add", "2,2"},
-            new String[]{"1", "div", "0"}
+            new String[]{"1", "div", "0"},
+            new String[]{"1", "div"},
+            new String[]{"1", "div", "0", "1"}
         };
 
         for (int i = 0; i < testCases.length; i++) {
