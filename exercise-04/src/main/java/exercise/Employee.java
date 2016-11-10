@@ -27,7 +27,7 @@ public class Employee {
     public Employee(String firstName, String lastName, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.salary = salary;
+        this.setSalary(salary);
     }
 
     /**
@@ -69,6 +69,10 @@ public class Employee {
      * @param salary Gehalt
      */
     public void setSalary(double salary) {
+        if (salary <= 0) {
+            throw new IllegalArgumentException("Salary must be greater 0");
+        }
+
         this.salary = salary;
     }
 
