@@ -13,7 +13,7 @@ package edu.stach.university.math;
 import java.util.Arrays;
 
 /**
- * Klasse zum Erzeugen von Matrizen
+ * Class for creating matrices
  *
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 17.10.2016
@@ -22,27 +22,27 @@ public class Matrix {
     private double[][] elements;
 
     /**
-     * Erzeugt eine Matrix
+     * Constructor for a matrix
      *
-     * @param elements Eine Tabelle mit Werten die als Matrix dargestellt werden sollen.
+     * @param elements A double array for rows and columns
      */
     public Matrix(double[][] elements) {
         this.setElements(elements);
     }
 
     /**
-     * Gibt die der Matrix zugrundeliegende Tabelle zurück
+     * Returns the elements of the matrix
      *
-     * @return Die Tabelle ist ein double array
+     * @return A double array for rows and columns
      */
     public double[][] getElements() {
         return elements;
     }
 
     /**
-     * Setzt die tabelle der Matrix
+     * Setter for the elements of the matrix
      *
-     * @param elements Ein double array für die Zeilen und Zellen
+     * @param elements A double array for rows and columns
      */
     public void setElements(double[][] elements) {
         if (elements.length == 0) {
@@ -62,28 +62,28 @@ public class Matrix {
     }
 
     /**
-     * Gibt die Zeilen Anzahl der Matrix zurück
+     * Returns the rowcount of the matrix
      *
-     * @return Die Anzahl an Zeilen
+     * @return The row count
      */
     public int getRows() {
         return this.elements.length;
     }
 
     /**
-     * Gibt die Spalten Anzahl der Matrix zurück
+     * Returns the column count of the matrix
      *
-     * @return Die Anzahl an Spalten
+     * @return The column count
      */
     public int getCols() {
         return this.elements[0].length;
     }
 
     /**
-     * Vergleicht diese Matrix mit einer anderen Matrix
+     * Checks if this matrix is equal to another on
      *
-     * @param m Die zu überprüfende Matrix
-     * @return true wenn Matrizen gleich sind sonst false
+     * @param m The matrix which will be checked
+     * @return Returns true if they are equal otherwise false
      */
     public boolean equals(Matrix m) {
         if (this.elements.length == m.elements.length) {
@@ -106,10 +106,10 @@ public class Matrix {
     }
 
     /**
-     * Addiert diese Matrix mit einer anderen Matrix und gibt die neue Matrix-Summe zurück
+     * Adds a matrix to this one
      *
-     * @param m Die zu addierende Matrix
-     * @return Eine neue Matrix mit der Summe der beien Matritzen
+     * @param m The matrix which will be added
+     * @return A new matrix containing the result
      */
     public Matrix add(Matrix m) {
         if (this.getRows() == m.getRows() && this.getCols() == m.getCols()) {
@@ -128,14 +128,14 @@ public class Matrix {
     }
 
     /**
-     * Bildet das Produkt dieser Matrix mit einer anderen Matrix und gibt die Ergebnis-Matrix zurück
+     * Calculates the product of this matrix with another one
      *
-     * @param m Die Matrix die rechts drank multipliziert wird
-     * @return Die Ergebnismatrix
+     * @param m The matrix which will be multiplied to this one from the right
+     * @return The resulting matrix
      */
     public Matrix multiply(Matrix m) {
         if (this.getCols() != m.getRows()) {
-            throw new IllegalArgumentException("Diese Matritzen können nicht multipliziert werden");
+            throw new IllegalArgumentException("These matrices can't be multiplied");
         } else {
             double[][] resultTable = new double[this.getCols()][this.getRows()];
 
@@ -152,10 +152,10 @@ public class Matrix {
     }
 
     /**
-     * Bildet das Scalarprodukt mit dieser Matrix und gibt die Ergebnismatrix zurück
+     * Calculates the scalar product of this matrix with a scalar value
      *
-     * @param scalar Ein Scalarer Wert
-     * @return Die Ergebnismatrix
+     * @param scalar A scalar value
+     * @return The resulting matrix
      */
     public Matrix multiplyScalar(double scalar) {
         double[][] resultTable = new double[this.getCols()][this.getRows()];
@@ -170,9 +170,9 @@ public class Matrix {
     }
 
     /**
-     * Gibt die Matrix als String aus
+     * Returns the matrix as a string
      *
-     * @return Die Darstellung einer Matrix
+     * @return The matrix as a string
      */
     @Override
     public String toString() {
