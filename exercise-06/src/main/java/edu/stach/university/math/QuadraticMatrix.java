@@ -46,9 +46,9 @@ public class QuadraticMatrix extends Matrix {
     }
 
     /**
-     * Multiplies the matrix n-times with itself
+     * Raises the matrix to a chosen power and returns the new resulting matrix
      *
-     * @param exponent The number of multiplications
+     * @param exponent The power
      * @return The resulting matrix
      * @throws IllegalArgumentException Is thrown if the exponent is less than 0
      */
