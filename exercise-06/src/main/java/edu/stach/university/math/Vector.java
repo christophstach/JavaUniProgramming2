@@ -48,6 +48,6 @@ public class Vector extends Matrix {
      */
     @Override
     public String toString() {
-        return super.toString();
+        return "Vector{} -> " + super.toString();
     }
 }
