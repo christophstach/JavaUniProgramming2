@@ -22,6 +22,12 @@ public class Matrix {
     private double[][] elements;
 
     /**
+     * Packag-private constructor
+     */
+    Matrix() {
+    }
+
+    /**
      * Constructor for a matrix
      *
      * @param elements A double array for rows and columns
@@ -176,7 +182,7 @@ public class Matrix {
      */
     @Override
     public String toString() {
-        String matrix = "";
+        String matrix = "Matrix{} \n";
 
         for (double[] row : this.elements) {
             matrix += Arrays.toString(row) + "\n";

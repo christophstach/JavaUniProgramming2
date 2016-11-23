@@ -10,31 +10,21 @@
 
 package edu.stach.university;
 
-import edu.stach.university.math.QuadraticMatrix;
+import edu.stach.university.math.IdentityMatrix;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
- * @since 11/19/16
+ * @since 11/23/16
  */
-public class TestQuadraticMatrix {
+public class TestIdentityMatrix {
     /**
      * Entry point for the application
      *
      * @param args Console arguments
      */
     public static void main(String[] args) {
-        QuadraticMatrix m = new QuadraticMatrix(new double[][]{
-                new double[] {1, 2, 3},
-                new double[] {4, 5, 6},
-                new double[] {7, 8, 9},
-        });
+        IdentityMatrix m = new IdentityMatrix(5);
 
-        System.out.println("m.toString(): \n" + m);
-
-        System.out.println("m.pow(0):  \n" + m.pow(0));
-        System.out.println("m.pow(1):  \n" + m.pow(1));
-        System.out.println("m.pow(2):  \n" + m.pow(2));
-        System.out.println("m.pow(3):  \n" + m.pow(3));
-
+        System.out.println(m);
     }
 }

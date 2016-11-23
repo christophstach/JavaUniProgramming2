@@ -17,6 +17,12 @@ package edu.stach.university.math;
  */
 public class QuadraticMatrix extends Matrix {
     /**
+     * Package-private constructor
+     */
+    QuadraticMatrix() {
+    }
+
+    /**
      * Constructor sets the elements
      *
      * @param elements The elements for the matrix
@@ -52,29 +58,17 @@ public class QuadraticMatrix extends Matrix {
      * @return The resulting matrix
      * @throws IllegalArgumentException Is thrown if the exponent is less than 0
      */
-    public Matrix pow(int exponent) {
+    public QuadraticMatrix pow(int exponent) {
         if (exponent > 0) {
             Matrix result = new Matrix(this.getElements());
 
             for (int i = 1; i < exponent; i++) {
-                result = result.multiply(this);
+                result =  result.multiply(this);
             }
 
-            return result;
+            return new QuadraticMatrix(result.getElements());
         } else if (exponent == 0) {
-            double[][] elements = new double[this.getRows()][this.getCols()];
-
-            for (int i = 0; i < elements.length; i++) {
-                for (int j = 0; j < elements[i].length; j++) {
-                    if (i == j) {
-                        elements[i][j] = 1;
-                    } else {
-                        elements[i][j] = 0;
-                    }
-                }
-            }
-
-            return new Matrix(elements);
+            return new IdentityMatrix(this.getRows());
         } else {
             throw new IllegalArgumentException("Exponents < 0 are not allowed");
         }
@@ -83,10 +77,10 @@ public class QuadraticMatrix extends Matrix {
     /**
      * Transforms the data of the quadratic matrix to a string
      *
-     * @return The quadratic matrix as a string
+     * @return The QuadraticMatrix as a string
      */
     @Override
     public String toString() {
-        return super.toString();
+        return "QuadraticMatrix{} -> " + super.toString();
     }
 }

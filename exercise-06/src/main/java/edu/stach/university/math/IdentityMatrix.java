@@ -8,33 +8,41 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university;
-
-import edu.stach.university.math.QuadraticMatrix;
+package edu.stach.university.math;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
- * @since 11/19/16
+ * @since 11/23/16
  */
-public class TestQuadraticMatrix {
+public class IdentityMatrix extends QuadraticMatrix {
     /**
-     * Entry point for the application
+     * Constructor
      *
-     * @param args Console arguments
+     * @param size The size of the IndentityMatrix
      */
-    public static void main(String[] args) {
-        QuadraticMatrix m = new QuadraticMatrix(new double[][]{
-                new double[] {1, 2, 3},
-                new double[] {4, 5, 6},
-                new double[] {7, 8, 9},
-        });
+    public IdentityMatrix(int size) {
+        double[][] elements = new double[size][size];
 
-        System.out.println("m.toString(): \n" + m);
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements[i].length; j++) {
+                if (i == j) {
+                    elements[i][j] = 1;
+                } else {
+                    elements[i][j] = 0;
+                }
+            }
+        }
 
-        System.out.println("m.pow(0):  \n" + m.pow(0));
-        System.out.println("m.pow(1):  \n" + m.pow(1));
-        System.out.println("m.pow(2):  \n" + m.pow(2));
-        System.out.println("m.pow(3):  \n" + m.pow(3));
+        this.setElements(elements);
+    }
 
+    /**
+     * Transforms the data of the identity matrix to a string
+     *
+     * @return The identity matrix as a string
+     */
+    @Override
+    public String toString() {
+        return "IdentityMatrix{} -> " + super.toString();
     }
 }
