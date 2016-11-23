@@ -21,6 +21,7 @@ public class IdentityMatrix extends QuadraticMatrix {
      * @param size The size of the IndentityMatrix
      */
     public IdentityMatrix(int size) {
+        super(new double[size][size]);
         double[][] elements = new double[size][size];
 
         for (int i = 0; i < elements.length; i++) {

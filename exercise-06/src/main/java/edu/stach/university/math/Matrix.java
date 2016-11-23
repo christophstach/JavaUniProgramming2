@@ -22,12 +22,6 @@ public class Matrix {
     private double[][] elements;
 
     /**
-     * Packag-private constructor
-     */
-    Matrix() {
-    }
-
-    /**
      * Constructor for a matrix
      *
      * @param elements A double array for rows and columns

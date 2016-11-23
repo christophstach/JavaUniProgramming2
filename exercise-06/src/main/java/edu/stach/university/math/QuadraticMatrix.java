@@ -17,12 +17,6 @@ package edu.stach.university.math;
  */
 public class QuadraticMatrix extends Matrix {
     /**
-     * Package-private constructor
-     */
-    QuadraticMatrix() {
-    }
-
-    /**
      * Constructor sets the elements
      *
      * @param elements The elements for the matrix
