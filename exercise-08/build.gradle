@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+tasks.create(name: 'run', type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'exercise.EmployeeTest'
+}
+
+tasks.create(name: 'zip', type: Zip) {
+    destinationDir = file('build/zips')
+    from (project.rootDir)
+    exclude(
+        '.gradle', 'build', '.gitignore', 'gradlew', '*.iml',
+        'gradlew.bat', 'settings.gradle', 'build.gradle', 'gradle', 'README.md'
+    )
+}
