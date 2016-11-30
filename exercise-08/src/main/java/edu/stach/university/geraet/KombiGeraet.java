@@ -8,32 +8,32 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university.device;
+package edu.stach.university.geraet;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/29/16
  */
-public class CombiDevice implements Printer, Fax {
+public class KombiGeraet implements Drucker, Fax {
     private static int deviceCount = 0;
     private int sender;
 
-    public CombiDevice() {
-        CombiDevice.deviceCount++;
-        this.sender = CombiDevice.deviceCount;
+    public KombiGeraet() {
+        KombiGeraet.deviceCount++;
+        this.sender = KombiGeraet.deviceCount;
     }
 
     @Override
-    public void send(String faxRef) {
+    public void senden(String sendeRef) {
         System.out.println("Absender ist: Kombigerät" + this.sender);
-        System.out.println(Fax.faxSimulation);
-        System.out.println(faxRef);
+        System.out.println(Fax.faxsimulation);
+        System.out.println(sendeRef);
     }
 
     @Override
-    public void print(String printRef) {
+    public void drucken(String druckRef) {
         System.out.println("Kombigerät Kombigerät" + this.sender + " meldet sich");
-        System.out.println(Printer.printSimulation);
-        System.out.println(printRef);
+        System.out.println(Drucker.drucksimulation);
+        System.out.println(druckRef);
     }
 }

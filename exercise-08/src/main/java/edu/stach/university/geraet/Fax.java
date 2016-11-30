@@ -8,29 +8,22 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university.compare;
+package edu.stach.university.geraet;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/29/16
  */
-public class TestVergleichbar {
+public interface Fax {
     /**
-     * Entry point for the application
-     *
-     * @param args Console arguments
+     * The string which is show when sending is triggered
      */
-    public static void main(String[] args) {
-        VInteger[] array = new VInteger[]{
-                new VInteger(1),
-                new VInteger(2),
-                new VInteger(-1),
-                new VInteger(1),
-                new VInteger(55),
-                new VInteger(-1),
-                new VInteger(3)
-        };
+    public String faxsimulation = "Das Senden wird simuliert";
 
-        System.out.println("Kleinstes Element: " + NuetzlicheFunktionen.kleinstesElement(array));
-    }
+    /**
+     * Sends a fax
+     *
+     * @param sendeRef The text of the Fax
+     */
+    public void senden(String sendeRef);
 }

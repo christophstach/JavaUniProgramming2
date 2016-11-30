@@ -8,33 +8,25 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university.device;
+package edu.stach.university.geraet;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/29/16
  */
-public class TestDevice {
-    /**
-     * Entry point for the application
-     *
-     * @param args Console arguments
-     */
-    public static void main(String[] args) {
-        LaserPrinter l1 = new LaserPrinter();
-        LaserPrinter l2 = new LaserPrinter();
-        FaxDevice f1 = new FaxDevice();
-        FaxDevice f2 = new FaxDevice();
-        CombiDevice k1 = new CombiDevice();
-        CombiDevice k2 = new CombiDevice();
+public class LaserDrucker implements Drucker {
+    private static int deviceCount = 0;
+    private int sender;
 
-        f1.send ("Dies ist ein Test");
-        f2.send ("Dies ist ein Test");
-        l1.print ("Dies ist ein Test");
-        l2.print ("Dies ist ein Test");
-        k1.send ("Dies ist ein Test");
-        k2.send ("Dies ist ein Test");
-        k1.print ("Dies ist ein Test");
-        k2.print ("Dies ist ein Test");
+    public LaserDrucker() {
+        LaserDrucker.deviceCount++;
+        this.sender = LaserDrucker.deviceCount;
+    }
+
+    @Override
+    public void drucken(String druckRef) {
+        System.out.println("Drucker Laser" + this.sender + " meldet sich");
+        System.out.println(Drucker.drucksimulation);
+        System.out.println(druckRef);
     }
 }

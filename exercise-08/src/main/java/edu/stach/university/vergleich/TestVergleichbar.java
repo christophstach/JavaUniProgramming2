@@ -8,18 +8,29 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university.compare;
+package edu.stach.university.vergleich;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/29/16
  */
-public interface Vergleichbar {
+public class TestVergleichbar {
     /**
-     * vergleicht this mit dem als Parameter uebergebenen Objekt
+     * Entry point for the application
      *
-     * @param obj übergebenes Objekt, mit dem this verglichen wird
-     * @return -1, falls this kleiner ist als das Parameterobjekt; 0, falls beide Objekte gleich gross sind; 1, falls this groesser ist als das Parameterobjekt
+     * @param args Console arguments
      */
-    public abstract int vergleicheMit(Vergleichbar obj);
+    public static void main(String[] args) {
+        VInteger[] array = new VInteger[]{
+                new VInteger(1),
+                new VInteger(2),
+                new VInteger(-1),
+                new VInteger(1),
+                new VInteger(55),
+                new VInteger(-1),
+                new VInteger(3)
+        };
+
+        System.out.println("Kleinstes Element: " + NuetzlicheFunktionen.kleinstesElement(array));
+    }
 }

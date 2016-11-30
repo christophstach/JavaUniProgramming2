@@ -8,22 +8,25 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.stach.university.device;
+package edu.stach.university.geraet;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
  * @since 11/29/16
  */
-public interface Printer {
-    /**
-     * The string which is show when printing is triggered
-     */
-    String printSimulation = "Das Drucken wird simuliert";
+public class FaxGeraet implements Fax {
+    private static int deviceCount = 0;
+    private int sender;
 
-    /**
-     * Prints a text
-     *
-     * @param printRef The text to print
-     */
-    public void print(String printRef);
+    public FaxGeraet() {
+        FaxGeraet.deviceCount++;
+        this.sender = FaxGeraet.deviceCount;
+    }
+
+    @Override
+    public void senden(String sendeRef) {
+        System.out.println("Absender ist: Fax" + this.sender);
+        System.out.println(Fax.faxsimulation);
+        System.out.println(sendeRef);
+    }
 }
