@@ -21,12 +21,16 @@ public class VInteger extends Integer implements Vergleichbar {
 
     @Override
     public int vergleicheMit(Vergleichbar obj) {
-        if (this.getWert() < ((VInteger) obj).getWert()) {
-            return -1;
-        } else if (this.getWert() == ((VInteger) obj).getWert()) {
-            return 0;
+        if (obj instanceof VInteger) {
+            if (this.getWert() < ((VInteger) obj).getWert()) {
+                return -1;
+            } else if (this.getWert() == ((VInteger) obj).getWert()) {
+                return 0;
+            } else {
+                return 1;
+            }
         } else {
-            return 1;
+            throw new IllegalArgumentException("Nur VIntgers können miteinander vergleichen werden");
         }
     }
 }
