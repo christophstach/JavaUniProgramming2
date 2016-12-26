@@ -8,47 +8,52 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.christophstach.university.login;
+package edu.christophstach.university.tree;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
- * @since 12/11/16
+ * @since 12/26/16
  */
-public class Login {
-    private boolean angemeldet;
+public class BinTreeTests {
+    @Test
+    public void testEmptyTree() {
+        BinTree tree = new BinTree();
 
-    /**
-     * Meldete einen Benutzer an
-     *
-     * @param benutzer Der Benutzer
-     * @param passwort Das Passwort
-     * @throws ZugriffUngueltigException Wird geworfen wenn die Anmeldung fehlschlägt
-     */
-    public void anmelden(String benutzer, String passwort) throws ZugriffUngueltigException {
-        if (benutzer.equals("christophstach") && passwort.equals("123456")) {
-            angemeldet = true;
-        } else {
-            throw new ZugriffUngueltigException();
-        }
+        Assert.assertFalse(tree.isNotEmpty());
+        Assert.assertEquals(0, tree.countLeaves());
+        Assert.assertTrue(tree.isSorted());
     }
 
-    /**
-     * Meldet den Benutzer ab
-     */
-    public void abmelden() {
-        angemeldet = false;
+
+    @Test
+    public void testSingleNodeTree() {
+        BinTree tree = new BinTree(new BinNode(5));
+
+        Assert.assertTrue(tree.isNotEmpty());
+        Assert.assertEquals(1, tree.countLeaves());
+        Assert.assertTrue(tree.isSorted());
     }
 
-    /**
-     * Simuliert eine das Bearbeiten eines Benutzers
-     *
-     * @throws KeineBerechtigungException Wird geworfen wenn Benutzer nicht angemeldet ist
-     */
-    public void bearbeiten() throws KeineBerechtigungException {
-        if (angemeldet) {
-            System.out.println("Es wird bearbeitet...");
-        } else {
-            throw new KeineBerechtigungException();
-        }
+    @Test
+    public void testUnEmptyTree() {
+        BinNode root = new BinNode(7);
+        root.left = new BinNode(4);
+        root.left.left = new BinNode(2);
+        root.left.left.left = new BinNode(1);
+
+        root.left.left.right = new BinNode(3);
+        root.left.right = new BinNode(5);
+
+        root.right = new BinNode(9);
+        root.right.left = new BinNode(8);
+
+        BinTree tree = new BinTree(root);
+
+        Assert.assertTrue(tree.isNotEmpty());
+        Assert.assertEquals(4, tree.countLeaves());
+        Assert.assertTrue(tree.isSorted());
     }
 }

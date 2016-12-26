@@ -8,17 +8,36 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package edu.christophstach.university.login;
+package edu.christophstach.university.tree;
 
 /**
  * @author Christoph Stach - s0555912@htw-berlin.de
- * @since 12/11/16
+ * @since 12/26/16
  */
-public class ZugriffUngueltigException extends Exception {
+class BinNode {
+    int data;
+    BinNode left, right;
+
     /**
-     * Konstruktor
+     * Constructor
+     *
+     * @param data The data
      */
-    public ZugriffUngueltigException() {
-        super("Fehler: Anmeldung fehlgeschlagen.");
+    BinNode(int data) {
+        this.data = data;
+        left = right = null;
+    }
+
+    /**
+     * Constructor to create Node directly
+     *
+     * @param data  The data
+     * @param left  The left node
+     * @param right The right node
+     */
+    BinNode(int data, BinNode left, BinNode right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
     }
 }
