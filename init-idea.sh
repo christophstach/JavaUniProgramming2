@@ -7,3 +7,4 @@ cd ./exercise-08 && gradle idea && rm -f ./*.ipr && rm -f ./*.iws && cd ..
 cd ./exercise-09 && gradle idea && rm -f ./*.ipr && rm -f ./*.iws && cd ..
 cd ./exercise-10 && gradle idea && rm -f ./*.ipr && rm -f ./*.iws && cd ..
 cd ./exercise-11 && gradle idea && rm -f ./*.ipr && rm -f ./*.iws && cd ..
+cd ./exercise-12 && gradle idea && rm -f ./*.ipr && rm -f ./*.iws && cd ..
